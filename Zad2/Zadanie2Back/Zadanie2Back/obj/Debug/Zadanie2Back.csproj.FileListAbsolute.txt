@@ -1,0 +1,7 @@
+C:\Users\TheLonelyStagg\Desktop\ZadaniaBSK\Zajecia1\Zad2\Zadanie2Back\Zadanie2Back\bin\Debug\Zadanie2Back.exe.config
+C:\Users\TheLonelyStagg\Desktop\ZadaniaBSK\Zajecia1\Zad2\Zadanie2Back\Zadanie2Back\bin\Debug\Zadanie2Back.exe
+C:\Users\TheLonelyStagg\Desktop\ZadaniaBSK\Zajecia1\Zad2\Zadanie2Back\Zadanie2Back\bin\Debug\Zadanie2Back.pdb
+C:\Users\TheLonelyStagg\Desktop\ZadaniaBSK\Zajecia1\Zad2\Zadanie2Back\Zadanie2Back\obj\Debug\Zadanie2Back.csproj.CoreCompileInputs.cache
+C:\Users\TheLonelyStagg\Desktop\ZadaniaBSK\Zajecia1\Zad2\Zadanie2Back\Zadanie2Back\obj\Debug\Zadanie2Back.exe
+C:\Users\TheLonelyStagg\Desktop\ZadaniaBSK\Zajecia1\Zad2\Zadanie2Back\Zadanie2Back\obj\Debug\Zadanie2Back.pdb
+C:\Users\TheLonelyStagg\Desktop\ZadaniaBSK\Zajecia1\Zad2\Zadanie2Back\Zadanie2Back\obj\Debug\Zadanie2Back.csprojAssemblyReference.cache
