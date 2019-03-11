@@ -1,0 +1,7 @@
+C:\Users\TheLonelyStagg\Desktop\ZadaniaBSK\Zajecia1\Zad3\ZadaniePdp2c\ZadanieMatrix3Out\ZadanieMatrix3Out\bin\Debug\ZadanieMatrix3Out.exe.config
+C:\Users\TheLonelyStagg\Desktop\ZadaniaBSK\Zajecia1\Zad3\ZadaniePdp2c\ZadanieMatrix3Out\ZadanieMatrix3Out\bin\Debug\ZadanieMatrix3Out.exe
+C:\Users\TheLonelyStagg\Desktop\ZadaniaBSK\Zajecia1\Zad3\ZadaniePdp2c\ZadanieMatrix3Out\ZadanieMatrix3Out\bin\Debug\ZadanieMatrix3Out.pdb
+C:\Users\TheLonelyStagg\Desktop\ZadaniaBSK\Zajecia1\Zad3\ZadaniePdp2c\ZadanieMatrix3Out\ZadanieMatrix3Out\obj\Debug\ZadanieMatrix3Out.csprojAssemblyReference.cache
+C:\Users\TheLonelyStagg\Desktop\ZadaniaBSK\Zajecia1\Zad3\ZadaniePdp2c\ZadanieMatrix3Out\ZadanieMatrix3Out\obj\Debug\ZadanieMatrix3Out.csproj.CoreCompileInputs.cache
+C:\Users\TheLonelyStagg\Desktop\ZadaniaBSK\Zajecia1\Zad3\ZadaniePdp2c\ZadanieMatrix3Out\ZadanieMatrix3Out\obj\Debug\ZadanieMatrix3Out.exe
+C:\Users\TheLonelyStagg\Desktop\ZadaniaBSK\Zajecia1\Zad3\ZadaniePdp2c\ZadanieMatrix3Out\ZadanieMatrix3Out\obj\Debug\ZadanieMatrix3Out.pdb
