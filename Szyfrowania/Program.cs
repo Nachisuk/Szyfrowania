@@ -58,7 +58,23 @@ namespace Szyfrowania
 
                         string wynik1 = RailFence.RailFenceCipher(klucz1, text1);
                         Console.WriteLine("Wynik szyfrowania to: " + wynik1);
-                        Console.ReadKey();
+
+                        //kontynuacja jakbyśmy chcieli odszyfrować to co właśnie zaszyfrowaliśmy
+                        Console.WriteLine("1.Odszyfruj");
+                        Console.WriteLine("2.Wróć");
+
+                        String c1 = Console.ReadLine();
+
+                        switch (c1)
+                                {
+                                  case "1":
+                                        wynik1 = RailFence.RailFenceDecipher(klucz1, wynik1);
+                                        Console.WriteLine("Wynik odszyfrowania to: " + wynik1);
+                                        Console.ReadKey();
+                                        break;
+                                    case "2":
+                                        break;
+                                }                 
                         break;
                     case "2":
                         Console.Clear();
@@ -70,7 +86,22 @@ namespace Szyfrowania
 
                         string wynik = RailFence.RailFenceDecipher(klucz, text);
                         Console.WriteLine("Wynik odszyfrowania to: " + wynik);
-                        Console.ReadKey();
+
+                        //kontynuacja jakbyśmy chcieli... 
+                        Console.WriteLine("1.Zaszyfruj");
+                        Console.WriteLine("2.Wróć");
+
+                        c1 = Console.ReadLine();
+                        switch (c1)
+                        {
+                            case "1":
+                                wynik1 = RailFence.RailFenceDecipher(klucz, wynik);
+                                Console.WriteLine("Wynik zaszyfrowania to: " + wynik1);
+                                Console.ReadKey();
+                                break;
+                            case "2":
+                                break;
+                        }
                         break;
                     case "3":
                         return;
@@ -102,11 +133,36 @@ namespace Szyfrowania
                         Console.WriteLine("Podaj drugi klucz");
                         int klucz2 = Int32.Parse(Console.ReadLine());
 
+                        if (!modInverse(klucz2))
+                        {
+                            Console.WriteLine("Drugi klucz nie jest relatywnie pierwszy względem 26");
+                            Console.ReadKey();
+                            break;
+                        }
+
                         Caesar caesar = new Caesar(klucz1, klucz2);
 
                         string wynik1 = caesar.CaesarEncrypt(text1);
                         Console.WriteLine("Wynik szyfrowania to: " + wynik1);
-                        Console.ReadKey();
+
+
+                        //kontynuacja jakbyśmy chcieli odszyfrować to co właśnie zaszyfrowaliśmy
+                        Console.WriteLine("1.Odszyfruj");
+                        Console.WriteLine("2.Wróć");
+
+                        String c1 = Console.ReadLine();
+
+                        switch (c1)
+                        {
+                            case "1":
+                                wynik1 = caesar.CaesarDecrypt(wynik1);
+                                Console.WriteLine("Wynik odszyfrowania to: " + wynik1);
+                                Console.ReadKey();
+                                break;
+                            case "2":
+                                break;
+                        }
+
                         break;
                     case "2":
                         Console.Clear();
@@ -119,11 +175,33 @@ namespace Szyfrowania
                         Console.WriteLine("Podaj drugi klucz");
                         int klucz3 = Int32.Parse(Console.ReadLine());
 
+                        if(!modInverse(klucz3))
+                        {
+                            Console.WriteLine("Drugi klucz nie jest relatywnie pierwszy względem 26");
+                            Console.ReadKey();
+                            break;
+                        }
+
                         Caesar caesar1 = new Caesar(klucz, klucz3);
 
-                        string wynik = caesar1.CaesarEncrypt(text);
+                        string wynik = caesar1.CaesarDecrypt(text);
                         Console.WriteLine("Wynik odszyfrowania to: " + wynik);
-                        Console.ReadKey();
+
+                        //kontynuacja jakbyśmy chcieli... 
+                        Console.WriteLine("1.Zaszyfruj");
+                        Console.WriteLine("2.Wróć");
+
+                        c1 = Console.ReadLine();
+                        switch (c1)
+                        {
+                            case "1":
+                                wynik = caesar1.CaesarEncrypt(wynik);
+                                Console.WriteLine("Wynik zaszyfrowania to: " + wynik);
+                                Console.ReadKey();
+                                break;
+                            case "2":
+                                break;
+                        }
                         break;
                     case "3":
                         return;
@@ -153,7 +231,25 @@ namespace Szyfrowania
 
                         string wynik1 = Vignere.cipherText(text1, klucz1);
                         Console.WriteLine("Wynik szyfrowania to: " + wynik1);
-                        Console.ReadKey();
+
+
+                        //kontynuacja jakbyśmy chcieli odszyfrować to co właśnie zaszyfrowaliśmy
+                        Console.WriteLine("1.Odszyfruj");
+                        Console.WriteLine("2.Wróć");
+
+                        String c1 = Console.ReadLine();
+
+                        switch (c1)
+                        {
+                            case "1":
+                                wynik1 = Vignere.decipherText(wynik1, klucz1);
+                                Console.WriteLine("Wynik odszyfrowania to: " + wynik1);
+                                Console.ReadKey();
+                                break;
+                            case "2":
+                                break;
+                        }
+
                         break;
                     case "2":
                         Console.Clear();
@@ -163,14 +259,38 @@ namespace Szyfrowania
                         Console.WriteLine("Podaj klucz");
                         string klucz = Console.ReadLine();
 
-                        string wynik = Vignere.cipherText(text, klucz);
+                        string wynik = Vignere.decipherText(text, klucz);
                         Console.WriteLine("Wynik odszyfrowania to: " + wynik);
-                        Console.ReadKey();
+
+                        //kontynuacja jakbyśmy chcieli... 
+                        Console.WriteLine("1.Zaszyfruj");
+                        Console.WriteLine("2.Wróć");
+
+                        c1 = Console.ReadLine();
+                        switch (c1)
+                        {
+                            case "1":
+                                wynik = Vignere.cipherText(wynik, klucz);
+                                Console.WriteLine("Wynik zaszyfrowania to: " + wynik);
+                                Console.ReadKey();
+                                break;
+                            case "2":
+                                break;
+                        }
                         break;
                     case "3":
                         return;
                 }
             }
+        }
+        public static bool modInverse(int key1)
+        {
+            for (int x = 1; x < 27; x++)
+            {
+                if ((key1 * x) % 26 == 1) return true;
+            }
+
+            return false;
         }
     }
 }
