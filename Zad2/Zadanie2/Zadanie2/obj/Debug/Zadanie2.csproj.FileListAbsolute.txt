@@ -1,7 +1,0 @@
-C:\Users\TheLonelyStagg\Desktop\ZadaniaBSK\Zajecia1\Zad2\Zadanie2\Zadanie2\bin\Debug\Zadanie2.exe.config
-C:\Users\TheLonelyStagg\Desktop\ZadaniaBSK\Zajecia1\Zad2\Zadanie2\Zadanie2\bin\Debug\Zadanie2.exe
-C:\Users\TheLonelyStagg\Desktop\ZadaniaBSK\Zajecia1\Zad2\Zadanie2\Zadanie2\bin\Debug\Zadanie2.pdb
-C:\Users\TheLonelyStagg\Desktop\ZadaniaBSK\Zajecia1\Zad2\Zadanie2\Zadanie2\obj\Debug\Zadanie2.csprojAssemblyReference.cache
-C:\Users\TheLonelyStagg\Desktop\ZadaniaBSK\Zajecia1\Zad2\Zadanie2\Zadanie2\obj\Debug\Zadanie2.csproj.CoreCompileInputs.cache
-C:\Users\TheLonelyStagg\Desktop\ZadaniaBSK\Zajecia1\Zad2\Zadanie2\Zadanie2\obj\Debug\Zadanie2.exe
-C:\Users\TheLonelyStagg\Desktop\ZadaniaBSK\Zajecia1\Zad2\Zadanie2\Zadanie2\obj\Debug\Zadanie2.pdb
