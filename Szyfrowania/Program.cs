@@ -8,13 +8,13 @@ namespace Szyfrowania
         {
             Console.WriteLine("Hello World!");
 
-            String text = "ATTACK AT DAWN";
-            String key = "LEMON";
+            String text = "CRYPTOGRAPHY";
+            Caesar code = new Caesar(15, 17);
 
-            String wynik = Vignere.cipherText(text,key);
+            String wynik = code.CaesarEncrypt(text);
 
             Console.WriteLine(wynik);
-            Console.WriteLine(Vignere.decipherText(wynik, key));
+            Console.WriteLine(code.CaesarDecrypt(wynik));
             Console.ReadKey();
         }
     }
