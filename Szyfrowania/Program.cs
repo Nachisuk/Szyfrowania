@@ -8,8 +8,8 @@ namespace Szyfrowania
         {
             Console.WriteLine("Hello World!");
 
-            String text = "CRYPTOGRAPHY";
-            Caesar code = new Caesar(15, 17);
+            String text = "CRYPTOGRAPHYASD";
+            Caesar code = new Caesar(3,5);
 
             String wynik = code.CaesarEncrypt(text);
 
