@@ -11,9 +11,10 @@ namespace Szyfrowania
                 Console.Clear();
                 Console.WriteLine("1. Zadanie 1 - Rail fence");
                 Console.WriteLine("2. Zadanie 2 -  Kryptosystem przestawieniowy 2a");
-                Console.WriteLine("3. Zadanie 3 - Kryptosystem przestawieniowy dla dowolnego klucza(b i c)");
-                Console.WriteLine("4. Zadanie 4 - Szyfr cezara 2b");
-                Console.WriteLine("5. Zadanie 5 - Tablica Vigenere'a");
+                Console.WriteLine("3. Zadanie 3.1 - Kryptosystem przestawieniowy dla dowolnego klucza(2b)");
+                Console.WriteLine("4. Zadanie 3.2 - Kryptosystem przestawieniowy dla dowolnego klucza(2c)");
+                Console.WriteLine("5. Zadanie 4 - Szyfr cezara 2b");
+                Console.WriteLine("6. Zadanie 5 - Tablica Vigenere'a");
                 String c = Console.ReadLine();
 
                 switch(c)
@@ -22,13 +23,18 @@ namespace Szyfrowania
                         RailFenceMenu();
                         break;
                     case "2":
+                        Matrix1Menu();
                         break;
                     case "3":
+                        Matrix2Menu();
                         break;
                     case "4":
-                        CaesarMenu();
+                        Matrix3Menu();
                         break;
                     case "5":
+                        CaesarMenu();
+                        break;
+                    case "6":
                         VignereMenu();
                         break;
                 }
@@ -109,6 +115,238 @@ namespace Szyfrowania
             }
 
         }
+
+        public static void Matrix1Menu()
+        {
+            while (true)
+            {
+                Console.Clear();
+                Console.WriteLine("Zadanie 2 -  Kryptosystem przestawieniowy 2a");
+                Console.WriteLine("1. Szyfrowanie");
+                Console.WriteLine("2. Odszyfrowanie");
+                Console.WriteLine("3. Powrót");
+                String c = Console.ReadLine();
+
+                switch (c)
+                {
+                    case "1":
+                        Console.Clear();
+                        Console.WriteLine("Podaj ciąg znaków");
+                        string text1 = Console.ReadLine();
+
+                        Console.WriteLine("Podaj liczność klucza");
+                        int d1 = Int32.Parse(Console.ReadLine());
+
+                        Console.WriteLine("Podaj klucz (format : int-int-int-...-int)");
+                        string klucz1 = Console.ReadLine();
+
+                        string wynik1 = Matrix1.Encrypt(text1,klucz1,d1);
+                        Console.WriteLine("Wynik szyfrowania to: " + wynik1);
+
+                        //kontynuacja jakbyśmy chcieli odszyfrować to co właśnie zaszyfrowaliśmy
+                        Console.WriteLine("1.Odszyfruj");
+                        Console.WriteLine("2.Wróć");
+
+                        String c1 = Console.ReadLine();
+
+                        switch (c1)
+                        {
+                            case "1":
+                                wynik1 = Matrix1.Decrypt(wynik1, klucz1, d1);
+                                Console.WriteLine("Wynik odszyfrowania to: " + wynik1);
+                                Console.ReadKey();
+                                break;
+                            case "2":
+                                break;
+                        }
+                        break;
+                    case "2":
+                        Console.Clear();
+                        Console.WriteLine("Podaj ciąg znaków");
+                        string text = Console.ReadLine();
+
+                        Console.WriteLine("Podaj liczność klucza");
+                        int d = Int32.Parse(Console.ReadLine());
+
+                        Console.WriteLine("Podaj klucz (format : int-int-int-...-int)");
+                        string klucz = Console.ReadLine();
+
+                        string wynik = Matrix1.Decrypt(text, klucz, d);
+                        Console.WriteLine("Wynik odszyfrowania to: " + wynik);
+
+                        //kontynuacja jakbyśmy chcieli... 
+                        Console.WriteLine("1.Zaszyfruj");
+                        Console.WriteLine("2.Wróć");
+
+                        c1 = Console.ReadLine();
+                        switch (c1)
+                        {
+                            case "1":
+                                wynik = Matrix1.Encrypt(wynik, klucz, d);
+                                Console.WriteLine("Wynik zaszyfrowania to: " + wynik);
+                                Console.ReadKey();
+                                break;
+                            case "2":
+                                break;
+                        }
+                        break;
+                    case "3":
+                        return;
+                }
+            }
+
+        }
+
+        public static void Matrix2Menu()
+        {
+            while (true)
+            {
+                Console.Clear();
+                Console.WriteLine("Zadanie 3.1 - Kryptosystem przestawieniowy dla dowolnego klucza(2b)");
+                Console.WriteLine("1. Szyfrowanie");
+                Console.WriteLine("2. Odszyfrowanie");
+                Console.WriteLine("3. Powrót");
+                String c = Console.ReadLine();
+
+                switch (c)
+                {
+                    case "1":
+                        Console.Clear();
+                        Console.WriteLine("Podaj ciąg znaków");
+                        string text1 = Console.ReadLine();
+
+                        Console.WriteLine("Podaj klucz");
+                        string klucz1 = Console.ReadLine();
+
+                        string wynik1 = Matrix2.Encrypt(text1, klucz1);
+                        Console.WriteLine("Wynik szyfrowania to: " + wynik1);
+
+                        //kontynuacja jakbyśmy chcieli odszyfrować to co właśnie zaszyfrowaliśmy
+                        Console.WriteLine("1.Odszyfruj");
+                        Console.WriteLine("2.Wróć");
+
+                        String c1 = Console.ReadLine();
+
+                        switch (c1)
+                        {
+                            case "1":
+                                wynik1 = Matrix2.Decrypt(wynik1, klucz1);
+                                Console.WriteLine("Wynik odszyfrowania to: " + wynik1);
+                                Console.ReadKey();
+                                break;
+                            case "2":
+                                break;
+                        }
+                        break;
+                    case "2":
+                        Console.Clear();
+                        Console.WriteLine("Podaj ciąg znaków");
+                        string text = Console.ReadLine();
+
+                        Console.WriteLine("Podaj klucz");
+                        string klucz = Console.ReadLine();
+
+                        string wynik = Matrix2.Decrypt(text, klucz);
+                        Console.WriteLine("Wynik odszyfrowania to: " + wynik);
+
+                        //kontynuacja jakbyśmy chcieli... 
+                        Console.WriteLine("1.Zaszyfruj");
+                        Console.WriteLine("2.Wróć");
+
+                        c1 = Console.ReadLine();
+                        switch (c1)
+                        {
+                            case "1":
+                                wynik = Matrix2.Encrypt(wynik, klucz);
+                                Console.WriteLine("Wynik zaszyfrowania to: " + wynik);
+                                Console.ReadKey();
+                                break;
+                            case "2":
+                                break;
+                        }
+                        break;
+                    case "3":
+                        return;
+                }
+            }
+
+        }
+
+        public static void Matrix3Menu()
+        {
+            while (true)
+            {
+                Console.Clear();
+                Console.WriteLine("Zadanie 3.1 - Kryptosystem przestawieniowy dla dowolnego klucza(2b)");
+                Console.WriteLine("1. Szyfrowanie");
+                Console.WriteLine("2. Odszyfrowanie");
+                Console.WriteLine("3. Powrót");
+                String c = Console.ReadLine();
+
+                switch (c)
+                {
+                    case "1":
+                        Console.Clear();
+                        Console.WriteLine("Podaj ciąg znaków");
+                        string text1 = Console.ReadLine();
+
+                        Console.WriteLine("Podaj klucz");
+                        string klucz1 = Console.ReadLine();
+
+                        string wynik1 = Matrix3.Encrypt(text1, klucz1);
+                        Console.WriteLine("Wynik szyfrowania to: " + wynik1);
+
+                        //kontynuacja jakbyśmy chcieli odszyfrować to co właśnie zaszyfrowaliśmy
+                        Console.WriteLine("1.Odszyfruj");
+                        Console.WriteLine("2.Wróć");
+
+                        String c1 = Console.ReadLine();
+
+                        switch (c1)
+                        {
+                            case "1":
+                                wynik1 = Matrix3.Decrypt(wynik1, klucz1);
+                                Console.WriteLine("Wynik odszyfrowania to: " + wynik1);
+                                Console.ReadKey();
+                                break;
+                            case "2":
+                                break;
+                        }
+                        break;
+                    case "2":
+                        Console.Clear();
+                        Console.WriteLine("Podaj ciąg znaków");
+                        string text = Console.ReadLine();
+
+                        Console.WriteLine("Podaj klucz");
+                        string klucz = Console.ReadLine();
+
+                        string wynik = Matrix3.Decrypt(text, klucz);
+                        Console.WriteLine("Wynik odszyfrowania to: " + wynik);
+
+                        //kontynuacja jakbyśmy chcieli... 
+                        Console.WriteLine("1.Zaszyfruj");
+                        Console.WriteLine("2.Wróć");
+
+                        c1 = Console.ReadLine();
+                        switch (c1)
+                        {
+                            case "1":
+                                wynik = Matrix3.Encrypt(wynik, klucz);
+                                Console.WriteLine("Wynik zaszyfrowania to: " + wynik);
+                                Console.ReadKey();
+                                break;
+                            case "2":
+                                break;
+                        }
+                        break;
+                    case "3":
+                        return;
+                }
+            }
+
+        }
+
         public static void CaesarMenu()
         {
             while (true)
