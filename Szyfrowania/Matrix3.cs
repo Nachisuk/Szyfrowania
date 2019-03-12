@@ -18,29 +18,41 @@ namespace Szyfrowania
             String C = "";
 
             List<KeyValuePair<char, int>> keySorted = new List<KeyValuePair<char, int>>();
-
+            int sum = 0;
             for (i = 0; i < key.Length; i++)
             {
                 keySorted.Add(new KeyValuePair<char, int>(key[i], i + 1));
+                sum += i + 1;
             }
 
-
             keySorted.Sort((pair1, pair2) => pair1.Key.CompareTo(pair2.Key));
+
+            int howManyRep = M.Length / sum;
+            if(M.Length%sum != 0)
+            {
+                howManyRep++;
+            }
 
             foreach (var letter in keySorted)
             {
                 int ileZnakow = letter.Value;
                 int tmpIndx = letter.Value - 1;
-                foreach (var item in keySorted)
+                for(i=0;i<howManyRep;i++)
                 {
-                    if (item.Value >= ileZnakow)
+                    foreach (var item in keySorted)
                     {
-                        if (tmpIndx < M.Length)
-                            C = C + M[tmpIndx];
+                        if (item.Value >= ileZnakow)
+                        {
+                            if (tmpIndx < M.Length)
+                                C = C + M[tmpIndx];
+                        }
+                        tmpIndx = tmpIndx + item.Value;
                     }
-                    tmpIndx = tmpIndx + item.Value;
                 }
+                
             }
+
+
 
             return C;
         }
@@ -58,44 +70,64 @@ namespace Szyfrowania
 
             M = M.PadLeft(C.Length);
             char[] mArray = M.ToCharArray();
+            int sum = 0;
 
             List<KeyValuePair<char, int>> keySorted = new List<KeyValuePair<char, int>>();
             for (i = 0; i < key.Length; i++)
             {
                 keySorted.Add(new KeyValuePair<char, int>(key[i], i + 1));
+                sum += i + 1;
             }
             keySorted.Sort((pair1, pair2) => pair1.Key.CompareTo(pair2.Key));
 
+            int howManyRep = M.Length / sum;
+            if (M.Length % sum != 0)
+            {
+                howManyRep++;
+            }
+
+
             int numRows = 0, tmpSum = 0;
 
-            foreach (var item in keySorted)
+            for(i=0;i<howManyRep;i++)
             {
-                tmpSum += item.Value;
-                numRows++;
-                if (tmpSum >= C.Length)
-                    break;
+                foreach (var item in keySorted)
+                {
+                    tmpSum += item.Value;
+                    numRows++;
+                    if (tmpSum >= C.Length)
+                        break;
+                }
             }
+            
+
 
             int indxToThrow = 0;
             foreach (var item in keySorted)
             {
                 int columnIndx = item.Value - 1;
 
+
+
                 int indxToInsert = columnIndx;
                 int currRow = 0;
-                foreach (var rowLetter in keySorted)
+                for(i = 0; i< howManyRep; i++)
                 {
-                    if (currRow >= numRows || indxToInsert >= mArray.Length)
-                        break;
-                    //else
-                    if (rowLetter.Value >= item.Value)
+                    foreach (var rowLetter in keySorted)
                     {
-                        mArray[indxToInsert] = C[indxToThrow];
-                        indxToThrow++;
+                        if (currRow >= numRows || indxToInsert >= mArray.Length)
+                            break;
+                        //else
+                        if (rowLetter.Value >= item.Value)
+                        {
+                            mArray[indxToInsert] = C[indxToThrow];
+                            indxToThrow++;
+                        }
+                        indxToInsert += rowLetter.Value;
+                        currRow++;
                     }
-                    indxToInsert += rowLetter.Value;
-                    currRow++;
                 }
+                
             }
 
             M = new String(mArray);

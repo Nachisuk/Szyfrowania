@@ -277,7 +277,7 @@ namespace Szyfrowania
             while (true)
             {
                 Console.Clear();
-                Console.WriteLine("Zadanie 3.1 - Kryptosystem przestawieniowy dla dowolnego klucza(2b)");
+                Console.WriteLine("Zadanie 3.1 - Kryptosystem przestawieniowy dla dowolnego klucza(2c)");
                 Console.WriteLine("1. Szyfrowanie");
                 Console.WriteLine("2. Odszyfrowanie");
                 Console.WriteLine("3. Powrót");
