@@ -24,7 +24,7 @@ namespace Szyfrowania
             for (int i = 0; i < text.Length; i++)
             {
                 int x = Convert.ToInt32(text[i] - 65);
-                encrypted += Convert.ToChar(((key1*x+key0)%26)+65);
+                encrypted += Convert.ToChar(mod((key1*x+key0),26)+65);
             }
 
             return encrypted;
@@ -38,7 +38,7 @@ namespace Szyfrowania
             {
                 int x = Convert.ToInt32(text[i] - 65);
                 if (x - key0 < 0) x = Convert.ToInt32(x) + 26;
-                decrypted += Convert.ToChar(((keyInverse * (x - key0)) % 26) + 65);
+                decrypted += Convert.ToChar(mod((keyInverse * (x - key0)),26) + 65);
             }
             return decrypted;
         }
@@ -47,10 +47,15 @@ namespace Szyfrowania
         {
            for(int x=1; x<27;x++)
             {
-                if ((key1 * x) % 26 == 1) return x;
+                if (mod((key1 * x), 26) == 1) return x;
             }
 
             throw new Exception("No multiplicative found!");
+        }
+
+        int mod(int x, int m)
+        {
+            return (x % m + m) % m;
         }
     }
 }
